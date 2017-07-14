@@ -1,154 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Sistema</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>{{ config('app.name') }}</title>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="base-path" content="{{ url('/') }}">
 
+    {{-- CSS TEMPLATE --}}
+    <link href="{{ asset('assets/plugins/pace/pace-theme-flash.min.css') }}" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <link href="{{ asset('assets/plugins/bootstrapv3/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/bootstrapv3/css/bootstrap-theme.min.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/animate.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/bootstrap-datepicker/css/datepicker.min.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ asset('assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ asset('assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/dropzone/css/dropzone.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('webarch/css/webarch.css') }}" rel="stylesheet" type="text/css"/>
+    {{-- CSS PERSONAL --}}
+    <link href="{{ asset('assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/cropper/cropper.min.css') }}" rel="stylesheet">
+    <link href="{{ asset(elixir('css/app.custom.css')) }}" rel="stylesheet" type="text/css"/>
+
+    {{-- BEGIN PAGE CSS --}}
     @yield('css')
 </head>
 
-<body class="skin-blue sidebar-mini">
-@if (!Auth::guest())
-    <div class="wrapper">
-        <!-- Main Header -->
-        <header class="main-header">
+<body class="">
+{{-- HEADER --}}
+<div class="header navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="header-seperation">
 
-            <!-- Logo -->
-            <a href="#" class="logo">
-                <b>Sistema</b>
+            {{-- MOBILE HEADER --}}
+            <ul class="nav pull-left notifcation-center visible-xs visible-sm">
+                <li class="dropdown">
+                    <a href="#main-menu" data-webarch="toggle-left-side">
+                        <div class="iconset top-menu-toggle-white"></div>
+                    </a>
+                </li>
+            </ul>
+
+            {{-- LOGO --}}
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('img/prestige-white.png') }}" style="margin-left: 37px; margin-top: 20px;" class="logo" alt=""  height="25"/>
             </a>
 
-            <!-- Header Navbar -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- User Account Menu -->
-                        <li class="dropdown user user-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- The user image in the navbar-->
-                                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
-                                     class="user-image" alt="User Image"/>
-                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">{!! Auth::user()->name !!}</span>
+            {{-- NAV BUTTONS --}}
+            <ul class="nav pull-right notifcation-center">
+                <li class="dropdown hidden-xs hidden-sm">
+                    <a href="/"  class="dropdown-toggle active" data-toggle="">
+                        <div class="iconset top-home"></div>
+                    </a>
+                </li>
+                <li class="dropdown visible-xs visible-sm">
+                    <a href="#" data-webarch="toggle-right-side">
+                        <div class="iconset top-chat-white"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {{-- CONTENT HEADER --}}
+        <div class="header-quick-nav">
+            <div class="pull-left">
+                <ul class="nav quick-section">
+                    <li class="quicklinks">
+                        <a href="#" class="" id="layout-condensed-toggle">
+                            <div class="iconset top-menu-toggle-dark"></div>
+                        </a>
+                    </li>
+                </ul>
+
+                {{-- HEADER TITLE --}}
+                <h4 class="quick-section">{{ config('app.name') }}</h4>
+            </div>
+
+            {{-- HEADER RIGHT SIDE SECTION --}}
+            <div class="pull-right">
+                <div class="chat-toggler">
+
+                    {{-- SETTINGS CENTER --}}
+                    @include('layouts.partials.settings')
+
+                    {{-- PROFILE PICTURE --}}
+                    <div class="profile-pic">
+                        @if (Auth::user()->photo)
+                            <img src="{{ asset( "img/profile/".Auth::user()->photo) }}" alt="" width="35" height="35"/>
+                        @else
+                            <img src="{{ asset('img/profile/default.png') }}" alt="" width="35" height="35">
+                        @endif
+                    </div>
+
+                    <div class="cog">
+                        @if (Auth::user()->hasRole('Admin'))
+                            <a href="{{ route('config.painel') }}" title="Configurações">
+                                <i class="fa fa-cog"></i>
                             </a>
-                            <ul class="dropdown-menu">
-                                <!-- The user image in the menu -->
-                                <li class="user-header">
-                                    <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
-                                         class="img-circle" alt="User Image"/>
-                                    <p>
-                                        {!! Auth::user()->name !!}
-                                        <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Sign out
-                                        </a>
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                        @endif
+                    </div>
+
                 </div>
-            </nav>
-        </header>
+            </div>{{-- END HEADER RIGHT SIDE SECTION --}}
+        </div>{{-- END CONTENT HEADER --}}
+    </div>{{-- END TOP NAVIGATION BAR --}}
+</div>{{-- END HEADER --}}
 
-        <!-- Left side column. contains the logo and sidebar -->
-        @include('layouts.sidebar')
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            @yield('content')
-        </div>
 
-        <!-- Main Footer -->
-        <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
-        </footer>
+<div class="page-container row-fluid">
+    {{-- MENU --}}
+    @include('layouts.partials.navigation')
 
-    </div>
-@else
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+    {{-- SCROLL UP --}}
+    <a href="#" class="scrollup">Scroll</a>
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    {{-- CONTENT --}}
+    @yield('content')
+</div>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{!! url('/') !!}">
-                    InfyOm Generator
-                </a>
-            </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{!! url('/home') !!}">Home</a></li>
-                </ul>
+{{-- JS TEMPLATE --}}
+<script src="{{ asset('assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.2.0.min.js" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/bootstrapv3/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/jquery-block-ui/jqueryblockui.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/jquery-unveil/jquery.unveil.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js') }}"
+        type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/select2/select2.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/jquery-mask/jquery.mask.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"
+        type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}" type="text/javascript"></script>
+{{-- JS PERSONAL --}}
+<script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/knob/jquery.knob.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/noty/jquery.noty.packaged.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/cropper/cropper.min.js') }}" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1JhAcUiWd45YFiqJv1tQ_EhslrOzhfLM"></script>
+<script src="{{ asset('webarch/js/webarch.js') }}" type="text/javascript"></script>
+<script src="{{ asset('webarch/js/custom.js') }}" type="text/javascript"></script>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    <li><a href="{!! url('/login') !!}">Login</a></li>
-                    <li><a href="{!! url('/register') !!}">Register</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+{{-- NOTIFICATIONS --}}
+@if (session()->has('success'))
+    <script>noty({text: "{!! session()->get('success') !!}", type: 'success'});</script>
+@elseif (session()->has('error'))
+    <script>noty({text: "{!! session()->get('error') !!}", type: 'error'});</script>
+@endif
 
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
-
-    <!-- jQuery 3.1.1 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-
-    <!-- AdminLTE App -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/js/app.min.js"></script>
-
-    @yield('scripts')
+{{-- INLINE JAVASCRIPTS --}}
+<script>
+    $(document).ready(function () {
+        $('select').select2();
+    })
+</script>
+@yield('js')
 </body>
 </html>

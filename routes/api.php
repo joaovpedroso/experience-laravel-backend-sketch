@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/cep/{cod}', function (Request $request, $cod) {
+    $client = new \GuzzleHttp\Client();
+    $res = $client->get("https://viacep.com.br/ws/$cod/json/");
+
+    return response()->json((json_decode($res->getBody())));
+
+})->name('api.cep');
