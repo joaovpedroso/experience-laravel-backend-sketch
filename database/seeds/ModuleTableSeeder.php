@@ -19,14 +19,6 @@ class ModuleTableSeeder extends Seeder
             'slug' => 'users'
         ]);
 
-        \App\Models\Module::create([
-            'name' => 'Noticias',
-            'position' => 2,
-            'url' => '/noticias',
-            'icon' => 'newspaper-o',
-            'slug' => 'news'
-        ]);
-
 
         \App\Models\Module::create([
             'name' => 'Log',

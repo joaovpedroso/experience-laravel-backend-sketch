@@ -47,43 +47,4 @@ Route::group(['middleware' => 'auth'], function () {
      */
     require_once "routes/user/routes.php";
 
-
-    /**
-     * news
-     */
-    Route::get('/editorials/status', 'Config\EditorialsController@status');
-    Route::resource('/editorials', 'Config\EditorialsController', ['except' => 'show']);
-    //news
-    Route::get('/noticias/status', 'Content\NewsController@status');
-    Route::get('content/noticias/trash/status', 'Content\NewsController@status');
-    Route::post('content/noticias/cover', 'Content\NewsController@cover');
-    Route::get('content/noticias/featured', 'Content\NewsController@featured');
-    Route::get('/noticias/{news}/restore', 'Content\NewsController@restore')
-        ->name('content.news.restore');
-    Route::get('/noticias/trash', 'Content\NewsController@trash')
-        ->name('content.news.trash');
-    Route::get('/noticias/{news}/photos', 'Content\NewsController@photos')
-        ->name('content.news.photos');
-    Route::post('/noticias/{news}/photos', 'Content\NewsController@upload')
-        ->name('content.news.upload');
-    Route::post('/noticias/caption/{photo}', 'Content\NewsController@caption')
-        ->name('content.news.photos.caption');
-    Route::delete('/noticias/delete/{photo}', 'Content\NewsController@delPhoto')
-        ->name('content.news.photos.delete');
-    Route::post('content/noticias/photos/order', 'Content\NewsController@order');
-    Route::resource('/noticias', 'Content\NewsController', ['except' => 'show', 'names' => [
-        'index' => 'content.news.index',
-        'create' => 'content.news.create',
-        'store' => 'content.news.store',
-        'edit' => 'content.news.edit',
-        'update' => 'content.news.update',
-        'destroy' => 'content.news.destroy'
-    ]]);
-    Route::get('/news/photos/{folder}/{filename}', function ($folder, $filename) {
-        $path = storage_path().'/app/img/news/'.$folder.'/'.$filename;
-        if (!\Illuminate\Support\Facades\File::exists($path))
-            abort(404);
-
-        return Image::make($path)->response();
-    });
 });
