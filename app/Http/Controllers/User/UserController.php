@@ -151,7 +151,7 @@ class UserController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        // Verifica se usuário é o prestige
+        // Verifica se usuário
         if ($id == 1) {
             abort(403);
         }
@@ -216,7 +216,7 @@ class UserController extends Controller
      */
     public function editPermission($cod)
     {
-        // Verifica se usuário é o prestige
+        // Verifica se usuário
         if ($cod == 1) {
             abort(403);
         }

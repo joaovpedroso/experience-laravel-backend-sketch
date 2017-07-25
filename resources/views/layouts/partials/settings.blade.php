@@ -18,15 +18,6 @@
 
 {{-- NAVIGATION --}}
 <ul class="dropdown-menu user-options" role="menu" aria-labelledby="user-options">
-   <li>
-      <a href="{{ route('profile.edit') }}">Editar Perfil</a>
-   </li>
-   <li>
-     <a href="{{ route('profile.password.edit') }}">Alterar Senha</a>
-   </li>
-
-  <li class="divider"></li>
-
   <li>
     <a href="{{ url('/logout') }}">
       <i class="fa fa-power-off"></i>

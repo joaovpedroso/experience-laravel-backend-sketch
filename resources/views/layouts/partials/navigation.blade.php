@@ -1,26 +1,6 @@
 <div class="page-sidebar" id="main-menu">
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
 
-        {{-- MINI-PROFILE --}}
-        <div class="user-info-wrapper">
-            <div class="profile-wrapper">
-                @if (Auth::user()->photo)
-                    <img src="{{ asset( "img/profile/".Auth::user()->photo) }}" alt="" width="69" height="69"/>
-                @else
-                    <img src="{{ asset('img/profile/default.png') }}" alt="" width="69" height="69">
-                @endif
-            </div>
-            <div class="user-info">
-                <div class="greeting">Bem vindo</div>
-                <div class="username">{{ head(explode(" ", Auth::user()->name)) }}</div>
-                <div class="status">
-                    {{-- Ver perfil --}}
-                </div>
-            </div>
-        </div>
-
-        {{-- SIDEBAR MENU --}}
-        <p class="menu-title">NAVEGAÇÃO</p>
         <ul>
             <li>
                 {{-- label --}}
@@ -71,19 +51,5 @@
                 </li>
             @endif
         </ul>
-
-        {{-- FOLDER MENU --}}
-        <!--<div class="side-bar-widgets">
-            <p class="menu-title">PRODUTIVIDADE</p>
-            <ul class="folders">
-                <li>
-                    <a href="https://webmail.{{ str_replace(['http://', 'https://'], "", config('app.url')) }}"
-                       target="_blank">
-                        <div class="status-icon red"></div>
-                        Webmail
-                    </a>
-                </li>
-            </ul>
-        </div>-->
     </div>
 </div>

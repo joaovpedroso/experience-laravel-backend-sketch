@@ -53,7 +53,7 @@
 
             {{-- LOGO --}}
             <a href="{{ url('/') }}">
-                <img src="{{ asset('img/prestige-white.png') }}" style="margin-left: 37px; margin-top: 20px;" class="logo" alt=""  height="25"/>
+                <h2>Logo</h2>
             </a>
 
             {{-- NAV BUTTONS --}}
@@ -92,23 +92,6 @@
 
                     {{-- SETTINGS CENTER --}}
                     @include('layouts.partials.settings')
-
-                    {{-- PROFILE PICTURE --}}
-                    <div class="profile-pic">
-                        @if (Auth::user()->photo)
-                            <img src="{{ asset( "img/profile/".Auth::user()->photo) }}" alt="" width="35" height="35"/>
-                        @else
-                            <img src="{{ asset('img/profile/default.png') }}" alt="" width="35" height="35">
-                        @endif
-                    </div>
-
-                    <div class="cog">
-                        @if (Auth::user()->hasRole('Admin'))
-                            <a href="{{ route('config.painel') }}" title="Configurações">
-                                <i class="fa fa-cog"></i>
-                            </a>
-                        @endif
-                    </div>
 
                 </div>
             </div>{{-- END HEADER RIGHT SIDE SECTION --}}

@@ -29,7 +29,7 @@
   <body class="gradient-bg no-top">
 
   <div class="login-logo">
-    <img src="{{ asset('img/logo-prestige-login3.png') }}" alt="">
+    <h2>Logo</h2>
   </div>
 
   <!-- BEGIN CONTAINER -->
