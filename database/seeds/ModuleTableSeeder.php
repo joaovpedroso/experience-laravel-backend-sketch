@@ -11,14 +11,6 @@ class ModuleTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Module::create([
-            'name' => 'Usuários',
-            'position' => 1,
-            'url' => '/users',
-            'icon' => 'user',
-            'slug' => 'users'
-        ]);
-
 
         \App\Models\Module::create([
             'name' => 'Log',
