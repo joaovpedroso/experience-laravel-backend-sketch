@@ -7,7 +7,7 @@ git clone https://github.com/AlexMCoder/experience-laravel-backend-sketch
 # Liberando acesso administrador no projeto (apenas no linux)
 
 ```
-sudo chmod 777 -R sketch-laravel-5.4/
+sudo chmod 777 -R experience-laravel-backend-sketch
 ```
 
 # Instalando o composer no projeto
