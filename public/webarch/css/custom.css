@@ -1,13 +1,6 @@
 /*------------------------------------------------------------------
 [My Configs]
 */
-.gradient-bg {
-    background-image:-moz-linear-gradient(top, #1a5586 49.7%, yellow 50%,#f6f7f8 50%);
-    background-image:linear-gradient(top, #1a5586 49.7%, yellow 50%,#f6f7f8 50%);
-    background-image:-webkit-linear-gradient(top, #1a5586 49.7%, yellow 50%,#f6f7f8 50%);
-    background-image:-o-linear-gradient(top, #1a5586 49.7%, yellow 50%,#f6f7f8 50%);
-    background-image:-ms-linear-gradient(top, #1a5586 49.7%, yellow 50%,#f6f7f8 50%);
-}
 .login-logo {
     position:absolute;
     left:0;
