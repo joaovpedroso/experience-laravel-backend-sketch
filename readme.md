@@ -44,6 +44,10 @@ Precisamos gerar uma key em nosso arquivo env para realizar a validação da apl
 php artisan key:generate
 ```
 
+# Alterando o e-mail e senha para acessar o painel
+
+*Pasta*: **database - > seeds -> UsersTableSeeder.php**
+
 # Ativando o seed
 
 Para termos acesso a usuários e login dentro do Painel Administrativo do Sistema, precisamos digitar o seguinte comando:
