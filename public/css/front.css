@@ -1,0 +1,31 @@
+.button-add-videos {
+    min-width: 180px;
+    margin-top: 5px;
+}
+.button-trash-videos {
+    margin-top: 5px;
+}
+.button-list-videos {
+	min-width: 85px;
+    margin-top: 5px;
+}
+
+td.iframe-video iframe {
+    width: 180px;
+    height: 140px;
+}
+
+/*descrição video*/
+
+td.description-videos {
+    text-align: justify;
+}
+
+button.btn.btn-primary.btn-small.pull-right {
+    margin-top: 10px;
+}
+
+ul.dropdown-menu.module-options {
+    margin-left: -70px;
+}
+
