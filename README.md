@@ -1,29 +1,6 @@
 # Criando o Back-end e o Front-end com Laravel
 
 <img src="http://i.imgur.com/TIlFmyE.png" alt="Laravel 5.4" width="650px">
-## Sumário
-
-* Introdução
-* O que é necessário aprender
-* Arquitetrua Laravel
-* Rotas
-* Controladores
-* Respostas HTTP
-* Views
-* Blade
-* View Composers
-* Validação
-* Migration
-* Eloquent ORM
-* Autenticação
-* Teste Unitário com Laravel
-* Criando o Backend
-* Criando o Frontend
-* Integração do Backend com o Frontend
-
-
-### [Referência do Sumário](https://github.com/Webschool-io/Curso-PHP-Laravel-Completo-E-Total)
-
 
 <hr>
 
