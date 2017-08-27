@@ -4,34 +4,6 @@
 
 <hr>
 
-# Implementação Sequencial
-
-## Atualizando o composer.json do projeto
-
-> composer update
-
-<hr>
-
-## Criando o arquivo .env e alterando as linhas abaixo conforme a configuração do banco de dados local:
-
-> DB_DATABASE=homestead
-> DB_USERNAME=homestead
-> DB_PASSWORD=secret
-
-<hr>
-
-## Gerando a APP-Key
-
-> php artisan key:generate
-
-<hr>
-
-## Inserindo nosso user administrador
-
-> database->seeds->UserTableSeeder
-
-<hr>
-
 ## Criando uma tabela no banco de dados:
 
 ```
