@@ -4,15 +4,15 @@
 
 # Atualizando o composer e configurando o arquivo .env
 
-## Atualizando o composer.json do projeto
-
-> composer update
-
 ## Criando o arquivo .env e alterando as linhas abaixo conforme a configuração do banco de dados local:
 
 > DB_DATABASE=homestead
 > DB_USERNAME=homestead
 > DB_PASSWORD=secret
+
+## Atualizando o composer.json do projeto
+
+> composer update
 
 <hr>
 
@@ -27,3 +27,11 @@
 > database->seeds->UserTableSeeder
 
 É necessário alterar os atributos **name**, **email** e **password**. Este será o nosso acesso ao painel administrador do Blog.
+
+<hr>
+
+## Subindo as tabelas de user no phpmyadmin
+
+```PHP
+php artisan migrate:refresh --seed
+```
