@@ -38,3 +38,9 @@ laravel new blog
 ```PHP
 composer create-project --prefer-dist laravel/laravel blog
 ```
+
+Para rodar o projeto, acesse o arquivo do projeto criado, no exemplo o nome do projeto é blog, e digite o comando abaixo:
+
+```PHP
+php artisan serve
+```
