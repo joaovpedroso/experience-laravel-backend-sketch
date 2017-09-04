@@ -57,3 +57,84 @@ O comando migrate:refresh reverterá todas as suas migrações e, em seguida, ex
 php artisan migrate:refresh --seed
 ```
 
+# Criando Tabelas
+
+Para criar uma nova tabela de banco de dados, use o método **create** na **Schema**. O método **create** aceita dois argumentos. O primeiro é o nome da tabela, enquanto o segundo é um **Closure** que recebe um objeto **Blueprint** que pode ser usado para definir a nova tabela:
+
+```PHP
+Schema::create('users', function (Blueprint $table) {
+    $table->increments('id');
+});
+```
+
+## Verificando se existe uma Tabela ou uma Coluna
+
+É possível verificarmos se existe uma tabela ou coluna com um determinado nome:
+
+```PHP
+if (Schema::hasTable('users')) {
+    //
+}
+
+if (Schema::hasColumn('users', 'email')) {
+    //
+}
+```
+## Motor de Conexão e Armazenamento
+
+Se você quiser executar uma operação de Schema em uma conexão de banco de dados que não é sua conexão padrão, use o método de conexão:
+
+```PHP
+Schema::connection('foo')->create('users', function (Blueprint $table) {
+    $table->increments('id');
+});
+```
+
+Você pode usar a propriedade engine no construtor de esquema para definir o mecanismo de armazenamento da tabela:
+
+```PHP
+Schema::create('users', function (Blueprint $table) {
+    $table->engine = 'InnoDB';
+
+    $table->increments('id');
+});
+```
+
+## Método Renaming
+
+Para renomear uma tabela de banco de dados existente, use o método renomear:
+
+```PHP
+Schema::rename($from, $to);
+```
+
+## Tipos de colunas disponíveis no Laravel
+
+Dentro das nossas tabelas podemos declarar os atributos e os seus tipos que existirá na tabela, [Clique aqui](https://laravel.com/docs/5.4/migrations#creating-columns) e veja a lista dos tipos.
+
+## Modicando Colunas
+
+As vezes precisamos alterar uma das colunas, como por exemplo o tamanho de um atributo nome. O Laravel é incrivel fazendo isso com o doctrine/dbal, basta instalar em nossas dependencias:
+
+```PHP
+composer require doctrine/dbal
+```
+
+### Alterando um atributo
+
+O método change permite que você modifique alguns tipos de colunas existentes para um novo tipo ou modifique os atributos da coluna. Por exemplo, você pode aumentar o tamanho de uma coluna de string. Para ver o método de mudança em ação, vamos aumentar o tamanho da coluna do nome de 25 para 50:
+
+```PHP
+Schema::table('users', function (Blueprint $table) {
+    $table->string('name', 50)->change();
+});
+```
+
+Podemos também deixar o tipo de um atributo null:
+
+```PHP
+Schema::table('users', function (Blueprint $table) {
+    $table->string('name', 50)->nullable()->change();
+});
+```
+
