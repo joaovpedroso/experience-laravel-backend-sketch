@@ -6,5 +6,11 @@
 
 Criando um sistema de blog com categorias, trabalhando com rotas, MVC e entendendo a estrutura Laravel.
 
-Pra ver os códigos e procedimentos feitos na sala [Clique Aqui!](https://www.google.com)
+Introdução ao Laravel: [Clique Aqui.](https://github.com/AlexMCoder/experience-laravel-backend-sketch/tree/master/aula)
+
+Pra ver os códigos e procedimentos feitos na sala [Clique Aqui!](https://github.com/AlexMCoder/experience-laravel-backend-sketch/tree/master/tutorial)
+
+Lista de Exercícios: [Clique Aqui!](https://github.com/AlexMCoder/experience-laravel-backend-sketch/tree/master/exercicios)
+
+
 
