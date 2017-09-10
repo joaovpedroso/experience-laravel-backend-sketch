@@ -1,0 +1,1 @@
+Agora que temos nossa página de formulário e um template pronto, vamos utilizar este mesmo template e renderizar dentro os conteúdos do blog. Serão duas páginas, a primeira mostra apenas a lista de postagem contendo apenas a imagem e o titulo. A segunda página deve aprensetar o conteúdo da postagem (titulo, texto e imagem)
