@@ -39,6 +39,12 @@ laravel new blog
 composer create-project --prefer-dist laravel/laravel blog
 ```
 
+No Windows, é mais seguro inserir a versão do laravel junto a instalação:
+
+```PHP
+composer create-project laravel/laravel laravel "5.4.*"
+```
+
 Para rodar o projeto, acesse o arquivo do projeto criado, no exemplo o nome do projeto é blog, e digite o comando abaixo:
 
 ```PHP
